@@ -26,12 +26,6 @@ public class PlayerControls : MonoBehaviour
 
     float xThrow, yThrow;
 
-    void Start()
-    {
-        ParticleSystem particlesystem = lasers[0].GetComponent<ParticleSystem>();
-        ParticleSystem particlesystem2 = lasers[1].GetComponent<ParticleSystem>();
-    }
-
     void Update()
     {
         ProcessTranslation();
