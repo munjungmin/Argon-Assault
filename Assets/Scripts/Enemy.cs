@@ -12,9 +12,16 @@ public class Enemy : MonoBehaviour
 
     ScoreBoard scoreBoard;
 
-    void Start() 
+    void Start()
     {
         scoreBoard = FindObjectOfType<ScoreBoard>();   // 프로젝트에서 발견하는 첫 ScoreBoard를 return, 여러개가 있으면 충돌 발생해서 배열 사용해야함 
+        AddRigidbody();
+    }
+
+    private void AddRigidbody()
+    {
+        Rigidbody rb = gameObject.AddComponent<Rigidbody>();
+        rb.useGravity = false;
     }
 
     void OnParticleCollision(GameObject other)
