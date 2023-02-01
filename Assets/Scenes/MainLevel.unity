@@ -227,8 +227,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324132696}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 166.2, y: 146.1, z: 300.5}
-  m_LocalScale: {x: 29.39577, y: 29.39577, z: 29.39577}
+  m_LocalPosition: {x: 139.5, y: 129.4, z: 300.5}
+  m_LocalScale: {x: 42.417213, y: 42.417213, z: 42.417213}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -348,6 +348,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d518db80230344c4599f62d9517b8e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  loadDelay: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,6 +747,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 2cbfbbcf3e223344a83f96898c93ddc9, type: 2}
+    - target: {fileID: 2963967548088435730, guid: 9406c47df90a28d4db34e18550eaafef, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5052901404432596626, guid: 9406c47df90a28d4db34e18550eaafef, type: 3}
       propertyPath: looping
       value: 1
