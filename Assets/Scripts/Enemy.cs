@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     {
         scoreBoard.IncreaseScore(scorePerHit);
     }
-    
+
     void KillEnemy()
     {
         GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
