@@ -6,7 +6,9 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject deathVFX;
     [SerializeField] Transform parent;
+    [SerializeField] GameObject laserHitVFX;
     [SerializeField] int scorePerHit = 15;
+    [SerializeField] int hitPoints = 4;
 
     ScoreBoard scoreBoard;
 
@@ -18,18 +20,26 @@ public class Enemy : MonoBehaviour
     void OnParticleCollision(GameObject other)
     {
         ProcessHit();
-        KillEnemy();
+
+        if (hitPoints < 1)
+        {
+            KillEnemy();
+        }
     }
 
     void ProcessHit()
     {
+        GameObject vfx = Instantiate(laserHitVFX, transform.position, Quaternion.identity);
+        vfx.transform.parent = parent;
+        hitPoints--;
         scoreBoard.IncreaseScore(scorePerHit);
+        //Debug.Log($"{this.name} only has ** {hitPoints} **life");
     }
 
     void KillEnemy()
     {
         GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
-        vfx.transform.parent = parent;  // 부모 게임오브젝트로 들어가게 함?
+        vfx.transform.parent = parent;
         Destroy(gameObject);
     }
 
