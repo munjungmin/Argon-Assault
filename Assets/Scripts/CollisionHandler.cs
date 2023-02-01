@@ -8,8 +8,7 @@ public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] float loadDelay = 1f;
     [SerializeField] ParticleSystem explosionVFX;
-    //[SerializeField] GameObject colliders;
-
+    
     void OnTriggerEnter(Collider other) {
         
         StartCrashSequence();

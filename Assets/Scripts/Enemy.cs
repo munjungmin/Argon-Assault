@@ -5,17 +5,19 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] GameObject deathVFX;
-    [SerializeField] Transform parent;
     [SerializeField] GameObject laserHitVFX;
     [SerializeField] int scorePerHit = 15;
     [SerializeField] int hitPoints = 4;
 
     ScoreBoard scoreBoard;
+    GameObject parentGameObject;
 
     void Start()
     {
         scoreBoard = FindObjectOfType<ScoreBoard>();   // 프로젝트에서 발견하는 첫 ScoreBoard를 return, 여러개가 있으면 충돌 발생해서 배열 사용해야함 
         AddRigidbody();
+        
+        parentGameObject = GameObject.FindWithTag("SpawnAtRuntime");
     }
 
     private void AddRigidbody()
@@ -37,7 +39,7 @@ public class Enemy : MonoBehaviour
     void ProcessHit()
     {
         GameObject vfx = Instantiate(laserHitVFX, transform.position, Quaternion.identity);
-        vfx.transform.parent = parent;
+        vfx.transform.parent = parentGameObject.transform;
         hitPoints--;
         scoreBoard.IncreaseScore(scorePerHit);
         //Debug.Log($"{this.name} only has ** {hitPoints} **life");
@@ -46,7 +48,7 @@ public class Enemy : MonoBehaviour
     void KillEnemy()
     {
         GameObject vfx = Instantiate(deathVFX, transform.position, Quaternion.identity);
-        vfx.transform.parent = parent;
+        vfx.transform.parent = parentGameObject.transform;
         Destroy(gameObject);
     }
 
